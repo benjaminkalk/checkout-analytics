@@ -1,0 +1,22 @@
+<?php
+/**
+ * Vendor_CheckoutAnalytics — checkout success analytics initialisation.
+ *
+ * This template is injected on the checkout_onepage_success layout handle.
+ * It contains no visible HTML — its sole purpose is to bootstrap our JS
+ * component via the x-magento-init pattern so RequireJS loads and runs it
+ * after the page DOM is ready.
+ *
+ * The `*` selector tells Magento to initialise the component against the
+ * document body (no specific DOM element required).
+ *
+ * @var \Magento\Framework\View\Element\Template $block
+ */
+?>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Vendor_CheckoutAnalytics/js/view/checkout-success": {}
+    }
+}
+</script>

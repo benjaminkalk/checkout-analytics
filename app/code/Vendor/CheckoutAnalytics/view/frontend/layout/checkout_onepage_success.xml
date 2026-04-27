@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+    Injects our analytics block into the checkout success page.
+
+    The handle `checkout_onepage_success` is dispatched by
+    Magento_Checkout/Controller/Onepage/Success::execute() before rendering,
+    so this layout update is guaranteed to run only on that page.
+
+    We append a block inside `checkout.success` (the main success container)
+    so it renders after the order confirmation content. The block is
+    display-less — it only outputs a <script> initialisation tag.
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="vendor.checkout_analytics.success"
+                   template="Vendor_CheckoutAnalytics::checkout-success.phtml"
+                   after="-"/>
+        </referenceContainer>
+    </body>
+</page>

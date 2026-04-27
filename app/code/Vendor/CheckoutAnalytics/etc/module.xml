@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+    Vendor_CheckoutAnalytics module declaration.
+    Declares a soft dependency on Magento_Checkout so this module loads after it,
+    ensuring our mixins target already-registered AMD modules.
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Vendor_CheckoutAnalytics">
+        <sequence>
+            <module name="Magento_Checkout"/>
+        </sequence>
+    </module>
+</config>
