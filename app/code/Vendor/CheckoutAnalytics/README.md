@@ -10,7 +10,7 @@ Before installing this module, confirm the following:
 - A Luma-based or Luma-derived frontend (RequireJS AMD module pattern)
 - PHP 8.1 or later
 - Access to the Magento CLI (`bin/magento`)
-- The server can reach `cdn.jsdelivr.net` and `acds-events.adobe.io` from the browser (CDN URLs are loaded client-side)
+- The server can reach `cdn.jsdelivr.net` from the browser (CDN URLs are loaded client-side)
 
 >[!NOTE]
 >
@@ -122,7 +122,7 @@ mse.context.setStorefrontInstance({
 
 >[!IMPORTANT]
 >
->The `environmentId` value is issued by Adobe when you provision a data stream in Adobe Experience Platform. Using a placeholder value like `BK_TEST_ENV` will cause events to be routed to the wrong data stream or dropped entirely.
+>The `environmentId` value is issued by Adobe when you provision a data stream in Adobe Experience Platform. Using a placeholder value like `TEST_ENV` will cause events to be routed to the wrong data stream or dropped entirely.
 
 After editing the file, redeploy static content:
 
@@ -248,6 +248,5 @@ bin/magento setup:static-content:deploy -f && bin/magento cache:flush
 - [Adobe Commerce Storefront Events SDK](https://developer.adobe.com/commerce/services/shared-services/storefront-events/sdk/install/)
 - [Storefront Events Collector](https://developer.adobe.com/commerce/services/shared-services/storefront-events/collector/)
 - [Storefront Events reference — placeOrder](https://developer.adobe.com/commerce/services/shared-services/storefront-events/reference/storefront-events/)
-- [Add custom attributes to orders](https://experienceleague.adobe.com/en/docs/commerce/data-connection/customize-data/custom-attributes)
 - [Magento custom JS components](https://developer.adobe.com/commerce/frontend-core/javascript/custom)
 - [RequireJS mixins in Magento](https://developer.adobe.com/commerce/frontend-core/javascript/requirejs/)
