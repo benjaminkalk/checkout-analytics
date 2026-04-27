@@ -1,22 +1,14 @@
 /**
  * RequireJS configuration for Vendor_CheckoutAnalytics.
  *
- * Registers one mixin:
- *
- *  place-order-mixin — wraps the core place-order action so we can snapshot
- *  the cart into localStorage BEFORE Magento redirects to the success page
- *  (the cart is emptied server-side before the success page renders).
- *
- * The success-page analytics component (checkout-success.js) is NOT a mixin.
- * It is initialized via x-magento-init in checkout-success.phtml, which is
- * injected by the checkout_onepage_success layout handle. This is the correct
- * approach because Magento_Checkout/js/view/checkout/success is not loaded on
- * the success page — it only exists in the checkout SPA bundle.
+ * - place-order-mixin: snapshots cart to localStorage before the order redirect.
+ * - paths: loads the MSE SDK and Collector as AMD deps with CDN + noop fallbacks.
+ *   The success-page component (checkout-success.js) declares these as deps so
+ *   they are guaranteed to execute before its callback runs.
  */
 var config = {
     config: {
         mixins: {
-            // Part 1: intercept the place-order action during checkout
             'Magento_Checkout/js/action/place-order': {
                 'Vendor_CheckoutAnalytics/js/action/place-order-mixin': true
             }
@@ -34,6 +26,6 @@ var config = {
         dataServicesBase: [
             'https://acds-events.adobe.io/v7/ds.min',
             'Magento_DataServices/js/noopDs'
-        ],
+        ]
     }
 };
